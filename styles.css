@@ -345,6 +345,11 @@ body > .scribe-author,
   z-index: 1;
 }
 
+/* Add margin between consecutive scribe-step-text elements */
+.scribe-step-text + .scribe-step-text {
+  margin-top: var(--spacing-md);
+}
+
 /* Tips styling */
 /* Target the parent div that contains a tip */
 .scribe-step:has(.scribe-step-tip) {
