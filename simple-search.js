@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'file': ['submit', 'send', 'report'],
         'create': ['submit', 'make', 'new'],
         
-        'report': ['complaint', 'issue', 'incident', 'submission'],
+        'report': ['complaint', 'issue', 'incident', 'submission', 'case', 'matter'],
         'complaint': ['report', 'issue', 'incident'],
         'issue': ['report', 'complaint', 'incident'],
         'incident': ['report', 'complaint', 'issue'],
