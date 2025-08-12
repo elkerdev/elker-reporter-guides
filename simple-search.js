@@ -11,15 +11,42 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Define synonym groups - each array contains words that are synonymous with each other
     const synonymGroups = [
-        ['submit', 'send', 'file', 'create'],
-        ['report', 'complaint', 'issue', 'incident', 'submission', 'case', 'matter'],
+        // Creation and submission actions
+        ['create', 'add', 'new', 'make', 'generate'],
+        ['submit', 'send', 'file', 'save', 'complete'],
+        
+        // Report-related terms
+        ['report', 'complaint', 'issue', 'incident', 'submission', 'case', 'matter', 'form', 'document'],
+        
+        // Privacy and security
         ['anonymous', 'private', 'confidential', 'unnamed'],
-        ['chat', 'message', 'communicate', 'contact'],
-        ['login', 'signin', 'access', 'enter'],
-        ['status', 'progress', 'update', 'check'],
         ['secure', 'safe', 'encrypted', 'protected'],
         ['password', 'code', 'pin', 'key'],
-        ['email', 'mail', 'address']
+        
+        // Communication
+        ['chat', 'message', 'communicate', 'contact'],
+        ['email', 'mail', 'address'],
+        
+        // Access and authentication
+        ['login', 'signin', 'access', 'enter'],
+        
+        // Status and progress
+        ['status', 'progress', 'update', 'check'],
+        
+        // People and organizations
+        ['client', 'customer', 'organization', 'company'],
+        ['partner', 'user', 'account'],
+        
+        // Interface elements
+        ['dashboard', 'portal', 'interface', 'page'],
+        
+        // Search and navigation
+        ['search', 'find', 'locate', 'lookup'],
+        ['view', 'see', 'display', 'show'],
+        
+        // Data modification
+        ['edit', 'modify', 'change', 'update'],
+        ['delete', 'remove', 'erase']
     ];
     
     // Build bidirectional synonym map from groups
