@@ -9,53 +9,27 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    // Define reporter-specific synonyms
-    const synonyms = {
-        'submit': ['send', 'file', 'report', 'create'],
-        'send': ['submit', 'file', 'report'],
-        'file': ['submit', 'send', 'report'],
-        'create': ['submit', 'make', 'new'],
-        
-        'report': ['complaint', 'issue', 'incident', 'submission', 'case', 'matter'],
-        'complaint': ['report', 'issue', 'incident'],
-        'issue': ['report', 'complaint', 'incident'],
-        'incident': ['report', 'complaint', 'issue'],
-        'submission': ['report', 'submit'],
-        
-        'anonymous': ['private', 'confidential', 'unnamed'],
-        'private': ['anonymous', 'confidential'],
-        'confidential': ['anonymous', 'private'],
-        'unnamed': ['anonymous'],
-        
-        'chat': ['message', 'communicate', 'contact'],
-        'message': ['chat', 'communicate', 'contact'],
-        'communicate': ['chat', 'message', 'contact'],
-        'contact': ['chat', 'message', 'communicate'],
-        
-        'login': ['signin', 'access', 'enter'],
-        'signin': ['login', 'access'],
-        'access': ['login', 'signin', 'enter'],
-        'enter': ['login', 'access'],
-        
-        'status': ['progress', 'update', 'check'],
-        'progress': ['status', 'update'],
-        'update': ['status', 'progress', 'check'],
-        'check': ['status', 'update', 'view'],
-        
-        'secure': ['safe', 'encrypted', 'protected'],
-        'safe': ['secure', 'protected'],
-        'encrypted': ['secure', 'protected'],
-        'protected': ['secure', 'safe', 'encrypted'],
-        
-        'password': ['code', 'pin', 'key'],
-        'code': ['password', 'pin'],
-        'pin': ['password', 'code'],
-        'key': ['password'],
-        
-        'email': ['mail', 'address'],
-        'mail': ['email', 'address'],
-        'address': ['email', 'mail']
-    };
+    // Define synonym groups - each array contains words that are synonymous with each other
+    const synonymGroups = [
+        ['submit', 'send', 'file', 'create'],
+        ['report', 'complaint', 'issue', 'incident', 'submission', 'case', 'matter'],
+        ['anonymous', 'private', 'confidential', 'unnamed'],
+        ['chat', 'message', 'communicate', 'contact'],
+        ['login', 'signin', 'access', 'enter'],
+        ['status', 'progress', 'update', 'check'],
+        ['secure', 'safe', 'encrypted', 'protected'],
+        ['password', 'code', 'pin', 'key'],
+        ['email', 'mail', 'address']
+    ];
+    
+    // Build bidirectional synonym map from groups
+    const synonyms = {};
+    synonymGroups.forEach(group => {
+        group.forEach(word => {
+            // For each word, all other words in the group are its synonyms
+            synonyms[word] = group.filter(w => w !== word);
+        });
+    });
     
     // Create search UI
     searchContainer.innerHTML = `
