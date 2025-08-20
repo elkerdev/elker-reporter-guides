@@ -431,7 +431,10 @@ body > .scribe-author,
   transition: all 0.2s ease;
   text-decoration: none;
   color: var(--color-text);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 200px;
 }
 
 .guide-card:hover {
@@ -443,12 +446,17 @@ body > .scribe-author,
 .guide-card h3 {
   color: rgb(17, 24, 39);
   margin-bottom: var(--spacing-sm);
+  min-height: 3.5em;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.4;
 }
 
 .guide-card p {
   color: var(--color-text-muted);
   font-size: 0.875rem;
   margin-bottom: 0;
+  flex: 1;
 }
 
 /* Responsive Design */
